@@ -1,0 +1,55 @@
+#include<iostream>
+#include<complex>
+#include<conio.h>
+
+using namespace std;
+
+class Complex {
+	std::complex< double >x;
+public:
+	Complex() {
+		x = 0;
+	}
+	Complex(std::complex< double >x) {
+		this->x = x;
+	}
+	void print() {
+		cout << "\nComplex number: " << conj(x);
+	}
+	void add(std::complex< double >y) {
+		x+=y;
+		cout << "\nProceeding with summ...";
+	}
+	void sub(std::complex< double >y) {
+		x-=y;
+		cout << "\nProceeding with substraction...";
+	}
+	void mult(int y) {
+		std::complex< double >buf(double(y), 0.0);
+		x *= buf;
+		cout << "\nProceeding with multiplication...";
+	}
+	void div(int y) {
+		std::complex< double >buf(double(y), 0.0);
+		x /= buf;
+		cout << "\nProceeding with division...";
+	}
+};
+
+int main() {
+	std::complex< double >x(1.0, 3.0);
+	std::complex< double >y(4.0, 2.0);
+	Complex C(x);
+	C.add(y);
+	C.print();
+	C.sub(y);
+	C.print();
+	C.mult(5);
+	C.print();
+	C.div(3);
+	C.print();
+
+
+	_getch();
+	return 0;
+}
